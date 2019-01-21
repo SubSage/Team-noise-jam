@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 const UP = Vector2(0, -1)
 const GRAVITY = 23
-const SPEED = 550
-const JUMP_HEIGHT = -600
+const SPEED = 300
+const JUMP_HEIGHT = -500
 const MAX_HP = 100
 const MAX_POWER = 200
 
@@ -36,13 +36,9 @@ func _process(delta):
 		anim = "Jump"
 	sprite.play(anim)
 	
-	if HP < 1:
-		get_tree().reload_current_scene()
-		
 	if power > MAX_POWER:
 		power = MAX_POWER
-	if power < 0:
-		power = 0
+	
 	
 		
 	
@@ -72,6 +68,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("gp_dash") && (dash == 0) && (power > 9):
 		dash = 1
 		power -= 10
+		if power < 0:
+			power = 0
 		sound._play_sound_full(1)
 		_cam_shake()
 		get_node("DashTimer").start()
@@ -99,6 +97,8 @@ func _fox_hurt(amnt):
 	get_node("Particles2D").emitting = 1
 	HP -= amnt
 	_cam_shake()
+	if HP < 1:
+		get_tree().reload_current_scene()
 	
 func _cam_shake():
 	if (!animplayer.current_animation == "CamShake"):
