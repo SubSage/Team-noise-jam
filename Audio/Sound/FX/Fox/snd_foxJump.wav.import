@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snd_foxJump.wav-ced12a6704c76827caf69d175683b757.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/FX/Fox/snd_foxJump.wav"
+dest_files=[ "res://.import/snd_foxJump.wav-ced12a6704c76827caf69d175683b757.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

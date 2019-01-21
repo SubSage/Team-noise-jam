@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0.0118343, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.535156, 0.535156, 0.535156, 0.215451 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, -0.844021, 0, 1, Vector2( 0.999679, 0.15625 ), -0.450911, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 4.55
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 8.69
+flatness = 0.0
+gravity = Vector3( -30, 0, 0 )
+initial_velocity = 9.67
+initial_velocity_random = 0.68
+angular_velocity = 19.93
+angular_velocity_random = 0.4
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 18.59
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 48.3
+angle_random = 1.0
+scale = 10.91
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+anim_speed = 5.79
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Scale" ]
+
+[node name="Poof" type="Particles2D"]
+
+position = Vector2( 0.527039, 0 )
+rotation = 3.14159
+scale = Vector2( 4, 4 )
+emitting = true
+amount = 559
+lifetime = 5.27
+one_shot = false
+preprocess = 2.39
+speed_scale = 6.51
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 5 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time" ]
+
+
