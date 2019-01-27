@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BazR2.png-12d9c48404516908d4037b130e40adde.stex"
+path="res://.import/PlayerRun03.png-fc4f96b6f2f196e17f1947bb93c3cf03.stex"
 
 [deps]
 
-source_file="res://Textures/BazR2.png"
-dest_files=[ "res://.import/BazR2.png-12d9c48404516908d4037b130e40adde.stex" ]
+source_file="res://Textures/PlayerRun03.png"
+dest_files=[ "res://.import/PlayerRun03.png-fc4f96b6f2f196e17f1947bb93c3cf03.stex" ]
 
 [params]
 

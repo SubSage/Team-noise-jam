@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_foxStillR.png-aa4e7321887ab285bc71e5e5efce55cb.stex"
+path="res://.import/PlayerRun04.png-dad711b02cf64a17b0a22786c403cea8.stex"
 
 [deps]
 
-source_file="res://Textures/spr_foxStillR.png"
-dest_files=[ "res://.import/spr_foxStillR.png-aa4e7321887ab285bc71e5e5efce55cb.stex" ]
+source_file="res://Textures/PlayerRun04.png"
+dest_files=[ "res://.import/PlayerRun04.png-dad711b02cf64a17b0a22786c403cea8.stex" ]
 
 [params]
 

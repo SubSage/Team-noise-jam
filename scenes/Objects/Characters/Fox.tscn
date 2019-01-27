@@ -1,19 +1,20 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Textures/spr_foxStillR.png" type="Texture" id=2]
-[ext_resource path="res://Textures/BazR1.png" type="Texture" id=3]
-[ext_resource path="res://Textures/BazR2.png" type="Texture" id=4]
-[ext_resource path="res://Textures/BazR3.png" type="Texture" id=5]
-[ext_resource path="res://Textures/BazR4.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/Sprite.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Objects/Effects/Particles2D.tscn" type="PackedScene" id=8]
-[ext_resource path="res://addons/sound/mixing_desk_sound.gd" type="Script" id=9]
-[ext_resource path="res://addons/sound/mds_icon.png" type="Texture" id=10]
-[ext_resource path="res://addons/sound/sound.gd" type="Script" id=11]
-[ext_resource path="res://addons/sound/snd_icon.png" type="Texture" id=12]
-[ext_resource path="res://Audio/Sound/FX/Fox/snd_foxJump.wav" type="AudioStream" id=13]
-[ext_resource path="res://Audio/Sound/FX/Fox/snd_boom-01.wav" type="AudioStream" id=14]
+[ext_resource path="res://Textures/PlayerRun01.png" type="Texture" id=2]
+[ext_resource path="res://Textures/PlayerRun02.png" type="Texture" id=3]
+[ext_resource path="res://Textures/PlayerRun03.png" type="Texture" id=4]
+[ext_resource path="res://Textures/PlayerRun04.png" type="Texture" id=5]
+[ext_resource path="res://Textures/PlayerRun05.png" type="Texture" id=6]
+[ext_resource path="res://Textures/PlayerRun06.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Sprite.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Objects/Effects/Particles2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://addons/sound/mixing_desk_sound.gd" type="Script" id=10]
+[ext_resource path="res://addons/sound/mds_icon.png" type="Texture" id=11]
+[ext_resource path="res://addons/sound/sound.gd" type="Script" id=12]
+[ext_resource path="res://addons/sound/snd_icon.png" type="Texture" id=13]
+[ext_resource path="res://Audio/Sound/FX/Fox/snd_foxJump.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/Sound/FX/Fox/snd_boom-01.wav" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -23,15 +24,15 @@ animations = [ {
 "name": "Still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Running",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -61,16 +62,18 @@ collision/safe_margin = 0.001
 script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -9 )
+scale = Vector2( 0.05, 0.05 )
 frames = SubResource( 1 )
 animation = "Still"
-script = ExtResource( 7 )
+playing = true
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.4868, -1.35598 )
 shape = SubResource( 2 )
 
-[node name="Poof" parent="." instance=ExtResource( 8 )]
+[node name="Poof" parent="." instance=ExtResource( 9 )]
 position = Vector2( 12.9865, -6.08485 )
 scale = Vector2( 2, 2 )
 emitting = false
@@ -121,34 +124,34 @@ wait_time = 0.3
 one_shot = true
 
 [node name="sounds" type="Node2D" parent="."]
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 __meta__ = {
-"_editor_icon": ExtResource( 10 )
+"_editor_icon": ExtResource( 11 )
 }
 
 [node name="jump" type="Node2D" parent="sounds"]
 editor/display_folded = true
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 __meta__ = {
-"_editor_icon": ExtResource( 12 )
+"_editor_icon": ExtResource( 13 )
 }
 
 [node name="woosh" type="AudioStreamPlayer2D" parent="sounds/jump"]
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = -10.0
 
 [node name="dash" type="Node2D" parent="sounds"]
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 __meta__ = {
-"_editor_icon": ExtResource( 12 )
+"_editor_icon": ExtResource( 13 )
 }
 
 [node name="woosh" type="AudioStreamPlayer2D" parent="sounds/dash"]
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = -10.0
 
 [node name="boom" type="AudioStreamPlayer2D" parent="sounds/dash"]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -10.0
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]

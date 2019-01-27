@@ -10,6 +10,7 @@ extents = Vector2( 32, 32 )
 [node name="Node2D" type="Node2D"]
 
 [node name="ground" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="grnd" type="StaticBody2D" parent="ground"]
 editor/display_folded = true
